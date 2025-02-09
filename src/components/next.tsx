@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import ValentinesHearts  from './floatingheart';
+import  ValentinesHearts  from './floatingheart';
 
 export const NextPage = () => {
   const location = useLocation();

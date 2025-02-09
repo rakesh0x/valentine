@@ -7,9 +7,10 @@ export const Landingpage = () => {
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-  };
+};
+
 
   const handleCreate = async () => {
     setIsLoading(true);
@@ -39,6 +40,7 @@ export const Landingpage = () => {
           className="w-full h-[50px] bg-white/10 backdrop-blur-lg rounded-2xl mt-6 border-2 focus:ring-2 focus:ring-red-700 p-3 text-white placeholder-white/80 text-lg"
           placeholder="Type Your Name Here"
         />
+        {/* BUTTON */}
         <button 
           onClick={handleCreate}
           disabled={isLoading}
