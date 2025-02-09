@@ -1,9 +1,12 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import ValentinesHearts  from './floatingheart';
 
 export const NextPage = () => {
   const location = useLocation();
   const name = location.state?.name || 'Guest';
+
+  const navigate = useNavigate();
 
   const sparkleVariants = {
     animate: {
@@ -16,8 +19,14 @@ export const NextPage = () => {
     }
   };
 
+  const handleCreate = async () => {
+      await new Promise(resolve => setTimeout(resolve, 800));
+      navigate('/Congratulations');
+  };  
+
   return (
     <div className="bg-gradient-to-br from-pink-300 via-red-300 to-pink-300 h-screen flex items-center justify-center">
+      <ValentinesHearts/>
       <motion.div 
         initial={{ opacity: 0 }}           
         animate={{ opacity: 1 }}
@@ -44,8 +53,8 @@ export const NextPage = () => {
           <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-xl font-bold text-xl hover:shadow-lg transition-shadow"
-          >
+            className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-xl font-bold text-xl hover:shadow-lg transition-shadow" onClick={handleCreate}
+          > 
             Yes! 💖
           </motion.button>
           

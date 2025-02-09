@@ -5,15 +5,14 @@ const ValentinesHearts = () => {
   const [hearts, setHearts] = useState([]);
 
   useEffect(() => {
-    // Create 30 hearts with random positions and properties
     const newHearts = Array.from({ length: 30 }, (_, index) => ({
       id: index,
       x: Math.random() * 100, 
       y: Math.random() * 100, 
       size: Math.random() * 24 + 16,
       duration: Math.random() * 10 + 10, 
-      delay: Math.random() * -20, // staggered start times
-      opacity: Math.random() * 0.5 + 0.5, // random opacity 0.5-1
+      delay: Math.random() * -20, 
+      opacity: Math.random() * 0.5 + 0.5, 
     }));
     setHearts(newHearts);
   }, []);
