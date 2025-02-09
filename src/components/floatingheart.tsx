@@ -1,13 +1,10 @@
-import  { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Heart } from 'lucide-react';
-import confetti from 'canvas-confetti';
 import { motion } from 'framer-motion';
 
-const ValentinesHearts = () => {
+const  ValentinesHearts = () => {
   const [hearts, setHearts] = useState<{ id: number; x: number; y: number; size: number; duration: number; delay: number; opacity: number }[]>([]);
-  const intervalRef = useRef<number | null>(null);
 
-  // Setup floating hearts
   useEffect(() => {
     const newHearts = Array.from({ length: 30 }, (_, index) => ({
       id: index,
@@ -19,45 +16,6 @@ const ValentinesHearts = () => {
       opacity: Math.random() * 0.5 + 0.5,
     }));
     setHearts(newHearts);
-  }, []);
-
-  // Setup confetti
-  useEffect(() => {
-    const shootConfetti = () => {
-      // Left side confetti
-      confetti({
-        origin: { x: 0, y: Math.random() },
-        angle: 0,
-        particleCount: 50,
-        spread: 70,
-        startVelocity: 90,
-        colors: ['#FF1493'],
-        disableForReducedMotion: true
-      });
-
-      // Right side confetti
-      confetti({
-        origin: { x: 1, y: Math.random() },
-        angle: 180,
-        particleCount: 50,
-        spread: 70,
-        startVelocity: 90,
-        colors: ['#DB181B'],
-        disableForReducedMotion: true
-      });
-    };
-
-    intervalRef.current = window.setInterval(shootConfetti, 300);
-
-    // Cleanup after 5 seconds
-    const timeout = setTimeout(() => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    }, 5000);
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-      clearTimeout(timeout);
-    };
   }, []);
 
   return (
@@ -95,4 +53,4 @@ const ValentinesHearts = () => {
   );
 };
 
-export default ValentinesHearts;
+export default ValentinesHearts

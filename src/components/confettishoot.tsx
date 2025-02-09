@@ -6,9 +6,8 @@ export const BidirectionalConfetti = ({ duration = 5000 }) => {
 
   useEffect(() => {
     const shootConfetti = () => {
-      // Right side confetti
       confetti({
-        origin: { x: 1, y: Math.random() }, 
+        origin: { x: 1, y: Math.random() },
         angle: 180, 
         particleCount: 50,
         spread: 70,
@@ -18,7 +17,6 @@ export const BidirectionalConfetti = ({ duration = 5000 }) => {
         gravity: 1
       });
 
-      // Left side confetti
       confetti({
         origin: { x: 0, y: Math.random() },
         angle: 0,
@@ -31,10 +29,8 @@ export const BidirectionalConfetti = ({ duration = 5000 }) => {
       });
     };
 
-    // Start shooting confetti
     intervalRef.current = window.setInterval(shootConfetti, 300);
 
-    // Stop after specified duration
     const timeoutId = setTimeout(() => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
@@ -42,7 +38,6 @@ export const BidirectionalConfetti = ({ duration = 5000 }) => {
       }
     }, duration);
 
-    // Cleanup function
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);

@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import { FaGithub } from 'react-icons/fa';
 import { BidirectionalConfetti } from './confettishoot';
 
-// GitHub Link Component for the Top
 const GitHubLink = () => {
   const githubRepoUrl = 'https://github.com/rakesh0x/valentine';
 
@@ -19,7 +18,6 @@ const GitHubLink = () => {
   );
 };
 
-// Footer Component for the Bottom
 const Footer = () => {
   return (
     <footer className="fixed bottom-0 left-0 right-0 bg-gray-800 text-white py-2 text-center">
@@ -28,7 +26,6 @@ const Footer = () => {
   );
 };
 
-// Main Confetti Component
 export const Confetti = () => {
   const sparkleVariants = {
     animate: {
@@ -43,13 +40,10 @@ export const Confetti = () => {
 
   return (
     <div className="bg-gradient-to-br from-pink-300 via-red-300 to-pink-300 h-screen flex flex-col items-center justify-center relative">
-      {/* GitHub Link at the Top */}
       <GitHubLink />
 
-      {/* Confetti Animation */}
       <BidirectionalConfetti />
 
-      {/* Main Text */}
       <div className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-red-500 sparkle-text text-center">
         <motion.div
           variants={sparkleVariants}
@@ -63,4 +57,4 @@ export const Confetti = () => {
       <Footer />
     </div>
   );
-};  
+};
