@@ -1,10 +1,9 @@
 import './App.css'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Landingpage } from './components/landing';
 import { NextPage } from './components/next';
-
-// Lazy load the Welcome component
-
+import { Confetti } from './components/confetti';
+import { Footer } from './components/git'; 
 
 function App() {
   return (
@@ -12,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Landingpage />} />
           <Route path="/welcome" element={<NextPage />} />
+          <Route path='/Congratulations' element={<Confetti/>}  />
         </Routes>
     </>
   )

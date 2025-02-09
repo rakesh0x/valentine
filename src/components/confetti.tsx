@@ -61,8 +61,6 @@ export const Confetti = () => {
           <p className="mt-6 mb-30">You Made me the Happiest Person ❤️</p>
         </motion.div>
       </div>
-
-      {/* Footer at the Bottom */}
       <Footer />
     </div>
   );
