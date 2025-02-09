@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import { Landingpage } from './components/landing';
 import { NextPage } from './components/next';
 import { Confetti } from './components/confetti';
-import { Footer } from './components/git'; 
 
 function App() {
   return (
